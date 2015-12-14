@@ -955,6 +955,12 @@ public class CDAModelUtil {
 			propertyCdaName = getCDAElementName(property);
 		}
 
+		// ..CITIE-810
+		if (propertyCdaName == null || propertyCdaName.isEmpty()) {
+			propertyCdaName = property.getName();
+		}
+		// ..CITIE-810
+
 		message.append(propertyPrefix != null
 				? propertyPrefix + ":" + propertyCdaName
 				: propertyCdaName);
