@@ -955,12 +955,6 @@ public class CDAModelUtil {
 			propertyCdaName = getCDAElementName(property);
 		}
 
-		// ..CITIE-810
-		if (propertyCdaName == null || propertyCdaName.isEmpty()) {
-			propertyCdaName = property.getName();
-		}
-		// ..CITIE-810
-
 		message.append(propertyPrefix != null
 				? propertyPrefix + ":" + propertyCdaName
 				: propertyCdaName);
@@ -1153,7 +1147,7 @@ public class CDAModelUtil {
 
 		// if there is a stereotype name, use it
 		String name = getStereotypeName(cdaProperty);
-		if (name != null) {
+		if (name != null && !name.isEmpty()) {
 			return name;
 		}
 
